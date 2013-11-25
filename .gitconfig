@@ -1,0 +1,5 @@
+[user]
+        name = Masayoshi Michikawa
+        email = michi.omochi@gmail.com
+[core]
+        autoCRLF = false
