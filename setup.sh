@@ -12,6 +12,9 @@ do
         ln -s $HOME/dotfiles/${file} $HOME/${file}
 done
 
+# 文字コード、改行コードの変換
+find . -type f | grep -v .git | xargs -n 10 nkf -w -Lu --overwrite
+
 # .vim submodule init & update
 cd $HOME/dotfiles
 git submodule init
