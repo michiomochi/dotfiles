@@ -17,10 +17,10 @@ find . -type f | grep -v .git | xargs -n 10 nkf -w -Lu --overwrite
 
 # .vim submodule init & update
 cd $HOME/dotfiles
-git submodule init
-git submodule update 
+GIT_SSL_NO_VERIFY=1 git submodule init
+GIT_SSL_NO_VERIFY=1 git submodule update 
 
 # install oh-my-zsh
 if [ ! -d $HOME/.oh-my-zsh ]; then
-        git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
+        GIT_SSL_NO_VERIFY=1 git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
 fi

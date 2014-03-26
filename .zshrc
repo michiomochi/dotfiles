@@ -12,13 +12,20 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git)
 
+# functions
+load_file_if_exists() {
+        if [ -f $1 ]; then
+                source $1
+        fi
+}
+
 # 基本設定{{{1
 	# 表示言語設定
 	export LANG=ja_JP.UTF-8
 	setopt print_eight_bit
 
 	# PATH
-	export PATH=/usr/local/bin:/usr/bin:$PATH
+	export PATH=$HOME/local/bin:/usr/local/bin:/usr/bin:$PATH
 
 	# 補完機能強化
 	autoload -U compinit
@@ -41,9 +48,6 @@ plugins=(git)
 	setopt append_history
 	setopt hist_no_store
 	setopt hist_ignore_dups
-
-	# cdと同時にlsを実行する
-	function chpwd(){ ls -aGF }
 # }}}
 
 # エイリアス{{{1
@@ -51,23 +55,25 @@ plugins=(git)
 # }}}
 
 # 外部ファイルの読み込み{{{1
-	source $ZSH/oh-my-zsh.sh
-	source $HOME/.zsh/.zshrc.proxy
-	source $HOME/.zsh/.zshrc.alias
+	load_file_if_exists "$ZSH/oh-my-zsh.sh"
+	load_file_if_exists "$HOME/.zsh/.zshrc.proxy"
+	load_file_if_exists "$HOME/.zsh/.zshrc.alias"
 # }}}
 
 # Github api token for Homebrew
-export HOMEBREW_GITHUB_API_TOKEN=600d6125e44b1fcfdfc4adc3f38a588c0eefbce1
+# export HOMEBREW_GITHUB_API_TOKEN=600d6125e44b1fcfdfc4adc3f38a588c0eefbce1
 
 # rbenv
-export PATH=$HOME/.rbenv/shims:$PATH
-eval "$(rbenv init - zsh)"
+# export PATH=$HOME/.rbenv/shims:$PATH
+# eval "$(rbenv init - zsh)"
 
 # phpenv
-export PATH=$HOME/.phpenv/bin:$PATH
-eval "$(phpenv init - zsh)"
+# export PATH=$HOME/.phpenv/bin:$PATH
+# eval "$(phpenv init - zsh)"
 
 # golang
-export GOROOT=/usr/local/Cellar/go/1.1.2
-export GOPATH=$HOME/Dev/Go
-export PATH=$GOPATH/bin:$PATH
+# export GOROOT=/usr/local/Cellar/go/1.1.2
+# export GOPATH=$HOME/Dev/Go
+# export PATH=$GOPATH/bin:$PATH
+#
+TERM=xterm

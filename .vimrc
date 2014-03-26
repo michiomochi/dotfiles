@@ -4,6 +4,9 @@
 " vi互換をoff
 set nocompatible
 
+" gitプロトコルではプロキシ環境下の場合プラグインをもってこれないのでhttpsプロトコルを使用する
+let g:neobundle_default_git_protocol='https'
+
 " ファイル形式の検出をoff
 filetype off
 
@@ -24,7 +27,7 @@ NeoBundle 'Shougo/neocomplete.vim'
 " }}}
 " }}}
 " 基本設定 {{{1
-
+        
 " ファイル形式別のプラグイン、及びインデントを有効にする
 filetype plugin indent on
 
@@ -55,7 +58,15 @@ set directory=$HOME/.vim/backup
 " backupファイルの保存ディレクトリを設定
 set backupdir=$HOME/.vim/backup
 
-" タブの代わりにスペースも挿入する
+" タブ表示幅
+set tabstop=4
+
+" タブ挿入幅
+set shiftwidth=4
+
+" タブ挿入幅
+
+" タブの代わりにスペースを挿入する
 set expandtab
 
 " カーソル移動が行頭、行末で止まらないようにする
