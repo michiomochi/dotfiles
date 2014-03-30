@@ -50,6 +50,8 @@ NeoBundleCheck
 " 基本設定 {{{1
 " swpファイルを作成しない
 set noswapfile
+" クリップボード設定
+set clipboard=unnamed
 " ファイル形式別のプラグイン、及びインデントを有効にする
 filetype plugin indent on
 " syntaxの有効化
