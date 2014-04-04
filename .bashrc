@@ -109,13 +109,6 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
-export PATH=/home/ts-michikawa01/local/bin:${PATH}
 alias vim='vim -u /home/ts-michikawa01/.vimrc'
 alias vi='vim -u /home/ts-michikawa01/.vimrc'
 alias v='vim -u /home/ts-michikawa01/.vimrc'
-
-proxy=http://dev-proxy.db.rakuten.co.jp:9501
-export http_proxy=$proxy
-export ftp_proxy=$proxy
-export https_proxy=$proxy
-
