@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh configuration.
-ZSH=${HOME}/.zsh/.oh-my-zsh
+ZSH=${HOME}/.zsh/oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -56,8 +56,6 @@ load_file_if_exists() {
 
 # 外部ファイルの読み込み{{{1
 	load_file_if_exists "$ZSH/oh-my-zsh.sh"
-	load_file_if_exists "$HOME/.zsh/.zshrc.proxy"
-	load_file_if_exists "$HOME/.zsh/.zshrc.alias"
 # }}}
 
 # Github api token for Homebrew
