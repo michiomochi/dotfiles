@@ -336,6 +336,21 @@ function automake_install() {
 	echo_install_complete_message automake-1.14
 }
 
+function zsh_install() {
+	echo_install_start_message zsh-5.0.5
+	cd ${PREFIX}/src
+	if [ ! -f zsh-5.0.5.tar.gz ]; then
+		wget_exec http://downloads.sourceforge.net/project/zsh/zsh/5.0.5/zsh-5.0.5.tar.gz
+		tar_exec zsh-5.0.5.tar.gz
+	fi
+	cd zsh-5.0.5
+	echo_compile_start_message zsh-5.0.5
+	./configure --prefix=${PREFIX} >> ${LOGFILE} 2>&1 || return 1
+	make -j2 >> ${LOGFILE} 2>&1 || return 1
+	make install >> ${LOGFILE} 2>&1 || return 1
+	echo_install_complete_message zsh-5.0.5
+}
+
 function pcre_install() {
 	echo_install_start_message pcre-8.35
 	cd ${PREFIX}/src
@@ -479,6 +494,11 @@ if [ ! -f ${BINDIR}/vim ]; then
     vim_install || error_catch
 fi
 
+# zshをいれる
+if [ ! -f ${BINDIR}/zsh ]; then
+    zsh_install || error_catch
+fi
+
 # msgfmtコマンドをいれる
 if ! type msgfmt > /dev/null 2>&1; then
 	gettext_install || error_catch
@@ -524,12 +544,12 @@ fi
 cpan_module_install || error_catch
 
 # curlコマンドがなかったらいれる
-if ! type curl > /dev/null 2>&1; then
+if [ ! -f ${BINDIR}/curl ]; then
 	curl_install || error_catch
 fi
 
 # gitコマンドがなかったらいれる
-if ! type git > /dev/null 2>&1; then
+if [ ! -f ${BINDIR}/git ]; then
 	git_install || error_catch
 fi
 
