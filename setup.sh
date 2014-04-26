@@ -647,4 +647,12 @@ cd ${HOME}/dotfiles
 GIT_SSL_NO_VERIFY=1 git submodule init
 GIT_SSL_NO_VERIFY=1 git submodule update
 
+# bitbucketにssh keyを登録する
+PUBKEY=`cat ${HOME}/.ssh/id_rsa.pub`
+echo -n 'Bitbucketのユーザー名を入力してください : '
+read BITBUCKET_USERNAME
+echo -n 'Bitbucketのパスワードを入力してください : '
+read -s BITBUCKET_PASSWORD
+curl --request POST --user ${BITBUCKET_USERNAME}:${BITBUCKET_PASSWORD} https://api.bitbucket.org/1.0/ssh-keys/ --data-urlencode "key=$PUBKEY" >> ${LOGFILE} 2>&1 || error_catch
+
 echo 'setup完了'
