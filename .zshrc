@@ -1,6 +1,10 @@
 # Path to your oh-my-zsh configuration.
 ZSH=${HOME}/.zsh/oh-my-zsh
 
+# .zshrcがあるディレクトリのパスを取得する
+# source: http://qiita.com/yudoufu/items/48cb6fb71e5b498b2532
+ZSHRCDIR=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -24,8 +28,14 @@ load_file_if_exists() {
 	export LANG=ja_JP.UTF-8
 	setopt print_eight_bit
 
-	# PATH
-	export PATH=$HOME/local/bin:/usr/local/bin:/usr/bin:$PATH
+	# PATHの設定
+    export PATH=/usr/local/sbin:$PATH
+    export PATH=/usr/local/bin:$PATH
+    export PATH=/usr/sbin:$PATH
+    export PATH=/usr/bin:$PATH
+    export PATH=/sbin:$PATH
+    export PATH=/bin:$PATH
+    export PATH=${ZSHRCDIR}/local/bin:$PATH
 
 	# 補完機能強化
 	autoload -U compinit
@@ -59,19 +69,14 @@ load_file_if_exists() {
 # }}}
 
 # Github api token for Homebrew
-# export HOMEBREW_GITHUB_API_TOKEN=600d6125e44b1fcfdfc4adc3f38a588c0eefbce1
+export HOMEBREW_GITHUB_API_TOKEN=600d6125e44b1fcfdfc4adc3f38a588c0eefbce1
 
 # rbenv
-# export PATH=$HOME/.rbenv/shims:$PATH
-# eval "$(rbenv init - zsh)"
+export PATH=${HOME}/.rbenv/bin:${HOME}/.rbenv/shims:${PATH}
+eval "$(rbenv init - zsh)"
 
 # phpenv
-# export PATH=$HOME/.phpenv/bin:$PATH
-# eval "$(phpenv init - zsh)"
+export PATH=${HOME}/.phpenv/bin:${HOME}/.phpenv/shims:${PATH}
+eval "$(phpenv init - zsh)"
 
-# golang
-# export GOROOT=/usr/local/Cellar/go/1.1.2
-# export GOPATH=$HOME/Dev/Go
-# export PATH=$GOPATH/bin:$PATH
-#
 TERM=xterm
