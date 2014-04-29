@@ -108,6 +108,21 @@ function libmcrypt_install() {
 	echo_install_complete_message libmcrypt-2.5.8
 }
 
+function m4_install() {
+	echo_install_start_message m4-1.4.17.tar.gz
+	cd ${PREFIX}/src
+	if [ ! -f m4-1.4.17.tar.gz ]; then
+		wget_exec http://ftp.gnu.org/gnu/m4/m4-1.4.17.tar.gz
+		tar_exec m4-1.4.17.tar.gz
+	fi
+	cd m4-1.4.17
+	echo_compile_start_message m4-1.4.17
+	./configure --prefix=${PREFIX} >> ${LOGFILE} 2>&1 || return 1
+	make -j2 >> ${LOGFILE} 2>&1 || return 1
+	make install >> ${LOGFILE} 2>&1 || return 1
+	echo_install_complete_message m4-1.4.17
+}
+
 function libxml2_install() {
 	echo_install_start_message libxml2-2.8.0
 	cd ${PREFIX}/src
@@ -514,13 +529,19 @@ if [ ! -f ${INCLUDEDIR}/glib-2.0/glib.h ]; then
 	glib_install || error_catch
 fi
 
+# autoconfをいれる
+# depends on m4
+if [ ! -f ${BINDIR}/autoconf ]; then
+    # m4をいれる
+    if [ ! -f ${BINDIR}/m4 ]; then
+        m4_install || error_catch
+    fi
+    autoconf_install || error_catch
+fi
+
 # automakeをいれる
-# depends on autoconf
+# depends on autoconf, m4
 if [ ! -f ${BINDIR}/automake ]; then
-	# autoconfをいれる
-	if [ ! -f ${BINDIR}/autoconf ]; then
-		autoconf_install || error_catch
-	fi
 	automake_install || error_catch
 fi
 
@@ -648,11 +669,11 @@ GIT_SSL_NO_VERIFY=1 git submodule init
 GIT_SSL_NO_VERIFY=1 git submodule update
 
 # bitbucketにssh keyを登録する
-PUBKEY=`cat ${HOME}/.ssh/id_rsa.pub`
-echo -n 'Bitbucketのユーザー名を入力してください : '
-read BITBUCKET_USERNAME
-echo -n 'Bitbucketのパスワードを入力してください : '
-read -s BITBUCKET_PASSWORD
-curl --request POST --user ${BITBUCKET_USERNAME}:${BITBUCKET_PASSWORD} https://api.bitbucket.org/1.0/ssh-keys/ --data-urlencode "key=$PUBKEY" >> ${LOGFILE} 2>&1 || error_catch
+# PUBKEY=`cat ${HOME}/.ssh/id_rsa.pub`
+# echo -n 'Bitbucketのユーザー名を入力してください : '
+# read BITBUCKET_USERNAME
+# echo -n 'Bitbucketのパスワードを入力してください : '
+# read -s BITBUCKET_PASSWORD
+# curl --request POST --user ${BITBUCKET_USERNAME}:${BITBUCKET_PASSWORD} https://api.bitbucket.org/1.0/ssh-keys/ --data-urlencode "key=$PUBKEY" >> ${LOGFILE} 2>&1 || error_catch
 
 echo 'setup完了'

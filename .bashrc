@@ -26,13 +26,13 @@ if [ -f ${BASHRCDIR}/.bashrc.local ]; then
 fi
 
 # PATHの設定
-export PATH=/usr/local/sbin:$PATH
-export PATH=/usr/local/bin:$PATH
-export PATH=/usr/sbin:$PATH
-export PATH=/usr/bin:$PATH
-export PATH=/sbin:$PATH
-export PATH=/bin:$PATH
-export PATH=${BASHRCDIR}/local/bin:$PATH
+export PATH=/usr/local/sbin:${PATH}
+export PATH=/usr/local/bin:${PATH}
+export PATH=/usr/sbin:${PATH}
+export PATH=/usr/bin:${PATH}
+export PATH=/sbin:${PATH}
+export PATH=/bin:${PATH}
+export PATH=${BASHRCDIR}/local/bin:${PATH}
 remove_duplicate_path
 
 # プロンプト設定
@@ -40,3 +40,6 @@ export PS1="[\u@\H \w]\\$ "
 
 # 使用エディタを設定
 export EDITOR=${BASHRCDIR}/local/vim
+
+# エイリアス
+alias vim='vim -u ${BASHRCDIR}/.vimrc'
