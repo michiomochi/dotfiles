@@ -39,7 +39,7 @@ remove_duplicate_path
 export PS1="[\u@\H \w]\\$ "
 
 # 使用エディタを設定
-export EDITOR=${BASHRCDIR}/local/vim
+export EDITOR=${BASHRCDIR}/local/bin/vim
 
 # エイリアス
 alias vim='vim -u ${BASHRCDIR}/.vimrc'
