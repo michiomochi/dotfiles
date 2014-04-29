@@ -26,6 +26,7 @@ NeoBundle 'majutsushi/tagbar'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tomasr/molokai'
+NeoBundle 'scrooloose/nerdtree'
 NeoBundleLazy 'Shougo/neosnippet'
 NeoBundleLazy 'Shougo/neosnippet-snippets'
 if has('lua')
@@ -89,6 +90,13 @@ set scrolloff=5
 set backspace=indent,eol,start
 " マウス有効化
 set mouse=a
+" nerdtreeの設定
+    " ファイル編集時自動で表示
+    autocmd vimenter * NERDTree | normal gg3j
+    " 隠しファイルを表示
+    let NERDTreeShowHidden = 1
+    " ブックマークを表示
+    let g:NERDTreeShowBookmarks=1 
 " }}}
 " キーマッピング {{{1
 " noremap = 全モード
