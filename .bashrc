@@ -35,6 +35,9 @@ export PATH=/bin:${PATH}
 export PATH=${BASHRCDIR}/local/bin:${PATH}
 remove_duplicate_path
 
+# 参照ライブラリの設定
+export LD_LIBRARY_PATH=${BASHRCDIR}/local/lib:${LD_LIBRARY_PATH}
+
 # プロンプト設定
 export PS1="[\u@\H \w]\\$ "
 

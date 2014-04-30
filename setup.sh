@@ -15,7 +15,7 @@ export LD_LIBRARY_PATH=${LIBDIR}:${LD_LIBRARY_PATH}
 # cpan初期設定を自動でデフォルト選択
 export PERL_AUTOINSTALL='--defaultdeps'
 # cpanでいれたライブラリディレクトリの指定
-export PERL5LIB=/home/vagrant/local/lib/perl5/site_perl/5.18.0
+export PERL5LIB=${LIBDIR}/perl5/site_perl/5.18.0
 
 function perl_install() {
 	echo_install_start_message perl-5.18.0
@@ -27,7 +27,7 @@ function perl_install() {
 	cd perl-5.18.0
 	echo_compile_start_message perl-5.18.0
 	# 変数使うとprefixがうまく効かないので環境に応じて書き換える
-	./configure.gnu -Dprefix=/home/vagrant/local >> ${LOGFILE} 2>&1 || return 1
+	./configure.gnu -Dprefix=/home/ts-michikawa01/local >> ${LOGFILE} 2>&1 || return 1
 	make -j2 >> ${LOGFILE} 2>&1 || return 1
 	make install >> ${LOGFILE} 2>&1 || return 1
 	echo_install_complete_message perl-5.18.0

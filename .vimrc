@@ -97,6 +97,8 @@ set mouse=a
     let NERDTreeShowHidden = 1
     " ブックマークを表示
     let g:NERDTreeShowBookmarks=1 
+    " ブックマークファイル作成ディレクトリを定義
+    let NERDTreeBookmarksFile=$VIMRCDIR . '/.NERDTreeBookmarks'
 " }}}
 " キーマッピング {{{1
 " noremap = 全モード
