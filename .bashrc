@@ -46,3 +46,18 @@ export EDITOR=${BASHRCDIR}/local/bin/vim
 
 # エイリアス
 alias vim='vim -u ${BASHRCDIR}/.vimrc'
+
+# ターミナルの定義
+export TERM=xterm-256color
+
+# phpenvの設定
+if [ -d ${BASHRCDIR}/.phpenv ]; then
+    export PATH=${BASHRCDIR}/.phpenv/bin:${BASHRCDIR}/.phpenv/shims:${PATH}
+    eval "$(phpenv init -)"
+fi
+
+# rbenvの設定
+if [ -d ${BASHRCDIR}/.rbenv ]; then
+    export PATH=${BASHRCDIR}/.rbenv/bin:${BASHRCDIR}/.rbenv/shims:${PATH}
+    eval "$(rbenv init -)"
+fi
