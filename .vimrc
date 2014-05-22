@@ -92,9 +92,9 @@ set backspace=indent,eol,start
 set mouse=a
 " nerdtreeの設定
     " ファイル編集時自動で表示
-    if !argc() 
+    if !argc()
         autocmd vimenter * NERDTree|normal gg3j
-    endif 
+    endif
     " 隠しファイルを表示
     let NERDTreeShowHidden = 1
     " ブックマークを表示
