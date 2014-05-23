@@ -1,6 +1,6 @@
 # .zshrcがあるディレクトリのパスを取得する
 # source: http://qiita.com/yudoufu/items/48cb6fb71e5b498b2532
-ZSHRCDIR=$(cd ../$(dirname $0); pwd)
+ZSHRCDIR=$(cd "$(dirname "$0")"; pwd)
 
 # Path to your oh-my-zsh configuration.
 ZSH=${ZSHRCDIR}/.zsh/oh-my-zsh
@@ -18,9 +18,9 @@ plugins=(git)
 
 # functions
 load_file_if_exists() {
-        if [ -f $1 ]; then
-                source $1
-        fi
+    if [ -f $1 ]; then
+        source $1
+    fi
 }
 
 # 基本設定{{{1
@@ -68,8 +68,9 @@ alias v='vim -u ${ZSHRCDIR}/.vimrc'
 alias gs='git status -sb'
 alias gcb='git checkout -b'
 alias gc='git commit'
-alias ga='git add -A'
+alias ga='git add'
 alias gpo='git push origin'
+alias gd='git diff'
 alias g='git'
 # }}}
 
@@ -88,6 +89,6 @@ eval "$(phpenv init - zsh)"
 export TERM=xterm-256color
 
 # 外部ファイルの読み込み{{{1
-	load_file_if_exists "${ZSH}/oh-my-zsh.sh"
-    load_file_if_exists "${ZSHRCDIR}/.zshrc_local"
+load_file_if_exists "${ZSH}/oh-my-zsh.sh"
+load_file_if_exists "${ZSHRCDIR}/.zshrc_local"
 # }}}
