@@ -39,15 +39,21 @@ export PATH=${ZSHRCDIR}/local/bin:${PATH}
 typeset -U path PATH
 
 # 補完機能強化
-autoload -U compinit
-compinit
+autoload -U compinit; compinit
+# 補完候補を一覧で表示
+setopt auto_list 
+# 補完キー連打で補完候補を順に表示
+setopt auto_menu 
+# 補完候補をできるだけ詰めて表示
+setopt list_packed 
+# 補完候補にファイルの種類も表示
+setopt list_types
 
 # 正規表現強化
 setopt EXTENDED_GLOB
 
 # ディレクトリ名のみで移動可能にする
 setopt auto_cd
-
 # 移動したディレクトリを記録
 setopt auto_pushd
 
@@ -78,11 +84,11 @@ alias g='git'
 export HOMEBREW_GITHUB_API_TOKEN=600d6125e44b1fcfdfc4adc3f38a588c0eefbce1
 
 # rbenv
-export PATH=${HOME}/.rbenv/bin:${HOME}/.rbenv/shims:${PATH}
+export PATH=${ZSHRCDIR}/.rbenv/bin:${ZSHRCDIR}/.rbenv/shims:${PATH}
 eval "$(rbenv init - zsh)"
 
 # phpenv
-export PATH=${HOME}/.phpenv/bin:${HOME}/.phpenv/shims:${PATH}
+export PATH=${ZSHRCDIR}/.phpenv/bin:${ZSHRCDIR}/.phpenv/shims:${PATH}
 eval "$(phpenv init - zsh)"
 
 # ターミナルの定義
@@ -90,5 +96,5 @@ export TERM=xterm-256color
 
 # 外部ファイルの読み込み{{{1
 load_file_if_exists "${ZSH}/oh-my-zsh.sh"
-load_file_if_exists "${ZSHRCDIR}/.zshrc_local"
+load_file_if_exists "${ZSHRCDIR}/.zshrc.local"
 # }}}
