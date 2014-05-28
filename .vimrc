@@ -270,8 +270,7 @@ autocmd BufWritePre,FileWritePre,FileAppendPre * call UpdateBackupFile()
 function! UpdateBackupFile()
     let dir = strftime($BACKUPDIR . '/%Y%m/%d', localtime())
     if !isdirectory(dir)
-        let retval = system('mkdir -p ' . dir)
-        let retval = system("chown vagrant:vagrant " . dir)   " ここのユーザー名とグループを変える
+        let retval = system('mkdir -p -m 777 ' . dir)
     endif
     exe "set backupdir=".dir
     let time = strftime("%H_%M_%S", localtime())

@@ -59,6 +59,11 @@ setopt EXTENDED_GLOB
 setopt auto_cd
 # 移動したディレクトリを記録
 setopt auto_pushd
+# emacsキーバインド
+bindkey -v
+
+# ログアウトしてもバックグラウンドジョブを続ける
+setopt NOHUP
 
 # historyの設定
 HISTFILE=${ZSHRCDIR}/.zsh/.histfile
@@ -84,6 +89,22 @@ alias gpuso='git push origin'
 alias gpulo='git pull origin'
 alias gdi='git diff'
 alias g='git'
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i -v'
+alias -g ....='../..'
+alias -g ......='../../..'
+
+# プロンプトの設定 {{{1
+autoload colors
+colors
+local currentTime='%W %*'
+local currentDir='%/'
+local userName='%n'
+local hostName='%M'
+PROMPT="%B%F{red}${userName}@${hostName}%f%b"$'\n'"%B%F{blue}[${currentDir}]%f%b"$'\n'"> "
+RPROMPT="%B%F{white}[${currentTime}]%f%b"
+# }}}
 # }}}
 
 # Github api token for Homebrew
@@ -101,6 +122,6 @@ eval "$(phpenv init - zsh)"
 export TERM=xterm-256color
 
 # 外部ファイルの読み込み{{{1
-load_file_if_exists "${ZSH}/oh-my-zsh.sh"
+#load_file_if_exists "${ZSH}/oh-my-zsh.sh"
 load_file_if_exists "${ZSHRCDIR}/.zshrc.local"
 # }}}
