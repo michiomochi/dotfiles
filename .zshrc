@@ -38,6 +38,9 @@ export PATH=/bin:${PATH}
 export PATH=${ZSHRCDIR}/local/bin:${PATH}
 typeset -U path PATH
 
+# 参照ライブラリの設定
+export LD_LIBRARY_PATH=${ZSHRCDIR}/local/lib:${LD_LIBRARY_PATH}
+
 # 補完機能強化
 autoload -U compinit; compinit
 # 補完候補を一覧で表示
@@ -71,12 +74,15 @@ setopt hist_ignore_dups
 alias vim='vim -u ${ZSHRCDIR}/.vimrc'
 alias vi='vim -u ${ZSHRCDIR}/.vimrc'
 alias v='vim -u ${ZSHRCDIR}/.vimrc'
-alias gs='git status -sb'
-alias gcb='git checkout -b'
-alias gc='git commit'
-alias ga='git add'
-alias gpo='git push origin'
-alias gd='git diff'
+alias gbra='git branch -a'
+alias gst='git status -sb'
+alias gchb='git checkout -b'
+alias gch='git checkout'
+alias gco='git commit'
+alias gad='git add'
+alias gpuso='git push origin'
+alias gpulo='git pull origin'
+alias gdi='git diff'
 alias g='git'
 # }}}
 
