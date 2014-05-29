@@ -51,6 +51,8 @@ setopt auto_menu
 setopt list_packed 
 # 補完候補にファイルの種類も表示
 setopt list_types
+# 補完候補にaliasを含める
+setopt complete_aliases
 
 # 正規表現強化
 setopt EXTENDED_GLOB
@@ -60,7 +62,7 @@ setopt auto_cd
 # 移動したディレクトリを記録
 setopt auto_pushd
 # emacsキーバインド
-bindkey -v
+bindkey -e
 
 # ログアウトしてもバックグラウンドジョブを続ける
 setopt NOHUP
@@ -92,12 +94,16 @@ alias g='git'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i -v'
+alias j='jobs'
+alias ls='ls -v -F --color=auto'
+alias ll='ls -l -a --color=auto'
+alias la='ls -A --color=auto'
+alias l='ls -v -A --color=auto'
 alias -g ....='../..'
 alias -g ......='../../..'
 
 # プロンプトの設定 {{{1
-autoload colors
-colors
+autoload colors && colors
 local currentTime='%W %*'
 local currentDir='%/'
 local userName='%n'
@@ -120,6 +126,15 @@ eval "$(phpenv init - zsh)"
 
 # ターミナルの定義
 export TERM=xterm-256color
+
+# ^でcd
+function cdup() {
+    echo
+    cd ..
+    zle reset-prompt
+}
+zle -N cdup
+bindkey '\^' cdup
 
 # 外部ファイルの読み込み{{{1
 #load_file_if_exists "${ZSH}/oh-my-zsh.sh"

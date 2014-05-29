@@ -17,6 +17,49 @@ export PERL_AUTOINSTALL='--defaultdeps'
 # cpanでいれたライブラリディレクトリの指定
 export PERL5LIB=${LIBDIR}/perl5/site_perl/5.18.0
 
+#############################################
+# 設定ファイルの配置
+#############################################
+echo '設定ファイルをHOMEディレクトリに配置します'
+# HOMEディレクトリに各設定ファイルのシムリンクを作成する
+for file in ${DOT_FILES[@]}
+do
+	if [ ! -f ${HOME}/dotfiles/${file} ]; then
+		continue
+	fi 
+	# シムリンク作成予定箇所に既にシムリンクが存在する場合は削除する
+	if [ -L ${HOME}/${file} ]; then
+		rm -f ${HOME}/${file}
+	fi
+	# シムリンク作成予定箇所にファイルが存在する場合は.backupディレクトリに移動する
+	if [ -f ${HOME}/${file} ]; then
+		if [ ! -d ${HOME}/.backup ]; then
+			mkdir ${HOME}/.backup
+		fi
+		mv ${HOME}/${file} ${HOME}/.backup/
+	fi
+	ln -s ${HOME}/dotfiles/${file} ${HOME}/${file}
+done
+
+for directory in ${DOT_DIRECTORIES[@]}
+do
+	if [ ! -d ${HOME}/dotfiles/${directory} ]; then
+		continue
+	fi 
+	# シムリンク作成予定箇所に既にシムリンクが存在する場合は削除する
+	if [ -L ${HOME}/${directory} ]; then
+		rm -f ${HOME}/${directory}
+	fi
+	# シムリンク作成予定箇所にディレクトリが存在する場合は.backupディレクトリに移動する
+	if [ -d ${HOME}/${directory} ]; then
+		if [ ! -d ${HOME}/.backup ]; then
+			mkdir ${HOME}/.backup
+		fi
+		mv ${HOME}/${directory} ${HOME}/.backup/
+	fi
+	ln -s ${HOME}/dotfiles/${directory} ${HOME}/${directory}
+done
+
 function perl_install() {
 	echo_install_start_message perl-5.18.0
 	cd ${PREFIX}/src
@@ -618,49 +661,6 @@ if [ ! -f ${BINDIR}/ag ]; then
 	fi
 	ag_install || error_catch
 fi
-
-#############################################
-# 設定ファイルの配置
-#############################################
-echo '設定ファイルをHOMEディレクトリに配置します'
-# HOMEディレクトリに各設定ファイルのシムリンクを作成する
-for file in ${DOT_FILES[@]}
-do
-	if [ ! -f ${HOME}/dotfiles/${file} ]; then
-		continue
-	fi 
-	# シムリンク作成予定箇所に既にシムリンクが存在する場合は削除する
-	if [ -L ${HOME}/${file} ]; then
-		rm -f ${HOME}/${file}
-	fi
-	# シムリンク作成予定箇所にファイルが存在する場合は.backupディレクトリに移動する
-	if [ -f ${HOME}/${file} ]; then
-		if [ ! -d ${HOME}/.backup ]; then
-			mkdir ${HOME}/.backup
-		fi
-		mv ${HOME}/${file} ${HOME}/.backup/
-	fi
-	ln -s ${HOME}/dotfiles/${file} ${HOME}/${file}
-done
-
-for directory in ${DOT_DIRECTORIES[@]}
-do
-	if [ ! -d ${HOME}/dotfiles/${directory} ]; then
-		continue
-	fi 
-	# シムリンク作成予定箇所に既にシムリンクが存在する場合は削除する
-	if [ -L ${HOME}/${directory} ]; then
-		rm -f ${HOME}/${directory}
-	fi
-	# シムリンク作成予定箇所にディレクトリが存在する場合は.backupディレクトリに移動する
-	if [ -d ${HOME}/${directory} ]; then
-		if [ ! -d ${HOME}/.backup ]; then
-			mkdir ${HOME}/.backup
-		fi
-		mv ${HOME}/${directory} ${HOME}/.backup/
-	fi
-	ln -s ${HOME}/dotfiles/${directory} ${HOME}/${directory}
-done
 
 # gitのsubmoduleを有効にする
 echo 'gitのsubmoduleを有効にします'
