@@ -95,10 +95,22 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i -v'
 alias j='jobs'
-alias ls='ls -v -F --color=auto'
-alias ll='ls -l -a --color=auto'
-alias la='ls -A --color=auto'
-alias l='ls -v -A --color=auto'
+case "${OSTYPE}" in
+    # Mac
+    darwin*)
+        alias ls="ls -v -F -G"
+        alias ll='ls -l -a -G'
+        alias la='ls -A -G'
+        alias l='ls -v -A -G'
+        ;;
+    # Linux
+    linux*)
+        alias ls="ls -v -F --color=auto"
+        alias ll='ls -l -a --color=auto'
+        alias la='ls -A --color=auto'
+        alias l='ls -v -A --color=auto'
+        ;;
+esac
 alias -g ....='../..'
 alias -g ......='../../..'
 
