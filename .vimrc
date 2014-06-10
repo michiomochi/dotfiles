@@ -20,13 +20,21 @@ endif
 " NeoBundleでインストールするプラグインの一覧 {{{2
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'kana/vim-smartchr'
+NeoBundle 'tpope/vim-surround'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'scrooloose/syntastic'
+" color scheme
 NeoBundle 'tomasr/molokai'
+" ディレクトリをサイドバーにツリー表示
 NeoBundle 'scrooloose/nerdtree'
+" インデントに色をつけ見やすくする
+NeoBundle 'nathanaelkane/vim-indent-guides'
+let g:indent_guides_enable_on_vim_startup = 1
+" 行末の半角スペースを可視化
+NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundleLazy 'Shougo/neosnippet'
 NeoBundleLazy 'Shougo/neosnippet-snippets'
 if has('lua')
