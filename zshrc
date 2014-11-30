@@ -1,20 +1,31 @@
+# oh-my-zsh settings{{{1
+# Path to your oh-my-zsh installation.
+export ZSH=${HOME}/.oh-my-zsh
+
+ZSH_THEME="wedisagree"
+DISABLE_CORRECTION="true"
+HISTFILE=${HOME}/.zsh-history
+
+# Would you like to use another custom folder than $ZSH/custom?
+ZSH_CUSTOM=${HOME}/.zsh/custom
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
 # .zshrcがあるディレクトリのパスを取得する
 # source: http://qiita.com/yudoufu/items/48cb6fb71e5b498b2532
 ZSHRCDIR=$(cd "$(dirname "$0")"; pwd)
-
-# Path to your oh-my-zsh configuration.
-ZSH=${ZSHRCDIR}/.zsh/oh-my-zsh
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="wedisagree"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git)
+# }}}
 
 # functions
 load_file_if_exists() {
@@ -25,7 +36,7 @@ load_file_if_exists() {
 
 # 基本設定{{{1
 # 表示言語設定
-export LANG=ja_JP.UTF-8
+export LANG=en_US.UTF-8
 setopt print_eight_bit
 
 # PATHの設定
@@ -35,11 +46,7 @@ export PATH=/usr/sbin:${PATH}
 export PATH=/usr/bin:${PATH}
 export PATH=/sbin:${PATH}
 export PATH=/bin:${PATH}
-export PATH=${ZSHRCDIR}/local/bin:${PATH}
 typeset -U path PATH
-
-# 参照ライブラリの設定
-export LD_LIBRARY_PATH=${ZSHRCDIR}/local/lib:${LD_LIBRARY_PATH}
 
 # 補完機能強化
 autoload -U compinit; compinit
@@ -78,9 +85,7 @@ setopt hist_ignore_dups
 # }}}
 
 # エイリアス{{{1
-alias vim='vim -u ${ZSHRCDIR}/.vimrc'
-alias vi='vim -u ${ZSHRCDIR}/.vimrc'
-alias v='vim -u ${ZSHRCDIR}/.vimrc'
+alias vi='vim'
 alias gbra='git branch -a'
 alias gst='git status -sb'
 alias gchb='git checkout -b'
@@ -120,21 +125,21 @@ local currentTime='%W %*'
 local currentDir='%/'
 local userName='%n'
 local hostName='%M'
-PROMPT="%B%F{red}${userName}@${hostName}%f%b"$'\n'"%B%F{blue}[${currentDir}]%f%b"$'\n'"> "
-RPROMPT="%B%F{white}[${currentTime}]%f%b"
+#PROMPT="%B%F{red}${userName}@${hostName}%f%b"$'\n'"%B%F{blue}[${currentDir}]%f%b"$'\n'"> "
+#RPROMPT="%B%F{white}[${currentTime}]%f%b"
 # }}}
 # }}}
 
 # Github api token for Homebrew
 export HOMEBREW_GITHUB_API_TOKEN=600d6125e44b1fcfdfc4adc3f38a588c0eefbce1
 
-# rbenv
-export PATH=${ZSHRCDIR}/.rbenv/bin:${ZSHRCDIR}/.rbenv/shims:${PATH}
-eval "$(rbenv init - zsh)"
-
 # phpenv
-export PATH=${ZSHRCDIR}/.phpenv/bin:${ZSHRCDIR}/.phpenv/shims:${PATH}
+export PATH=${HOME}/.phpenv/bin:${HOME}/.phpenv/shims:${PATH}
 eval "$(phpenv init - zsh)"
+
+# rbenv
+export PATH=${HOME}/.rbenv/bin:${HOME}/.rbenv/shims:${PATH}
+eval "$(rbenv init - zsh)"
 
 # ターミナルの定義
 export TERM=xterm-256color
@@ -147,8 +152,3 @@ function cdup() {
 }
 zle -N cdup
 bindkey '\^' cdup
-
-# 外部ファイルの読み込み{{{1
-#load_file_if_exists "${ZSH}/oh-my-zsh.sh"
-load_file_if_exists "${ZSHRCDIR}/.zshrc.local"
-# }}}

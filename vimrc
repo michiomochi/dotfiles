@@ -14,7 +14,9 @@ filetype off
 " NeoBundleの設定
 if has('vim_starting')
   set runtimepath+=$VIMRCDIR/.vim/bundle/neobundle.vim
-  call neobundle#rc($VIMRCDIR . '/.vim/bundle/')
+  call neobundle#begin($VIMRCDIR . '/.vim/bundle/')
+  NeoBundleFetch 'Shougo/neobundle.vim'
+  call neobundle#end()
 endif
 " }}}
 " NeoBundleでインストールするプラグインの一覧 {{{2

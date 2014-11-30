@@ -1,0 +1,9 @@
+:backtrace: false
+:benchmark: false
+:sources:
+  - http://rubygems.org/
+:verbose: true
+:update_sources: true
+
+install: --no-document
+update: --no-document
