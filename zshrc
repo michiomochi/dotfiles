@@ -125,7 +125,7 @@ local currentTime='%W %*'
 local currentDir='%/'
 local userName='%n'
 local hostName='%M'
-#PROMPT="%B%F{red}${userName}@${hostName}%f%b"$'\n'"%B%F{blue}[${currentDir}]%f%b"$'\n'"> "
+PROMPT="%B%F{red}${userName}@${hostName}%f%b"$'\n'"%B%F{blue}[${currentDir}]%f%b"$'\n'"> "
 #RPROMPT="%B%F{white}[${currentTime}]%f%b"
 # }}}
 # }}}
