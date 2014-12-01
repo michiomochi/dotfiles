@@ -1,5 +1,8 @@
 [user]
-        name = Masayoshi Michikawa
-        email = michi.omochi@gmail.com
+        name = Michikawa Masayoshi
+        email = michikawa.masayoshi@gmail.com
 [core]
+        editor = vim
         autoCRLF = false
+[color]
+        ui = auto

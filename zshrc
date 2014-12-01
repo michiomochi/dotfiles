@@ -4,7 +4,6 @@ export ZSH=${HOME}/.oh-my-zsh
 
 ZSH_THEME="wedisagree"
 DISABLE_CORRECTION="true"
-HISTFILE=${HOME}/.zsh-history
 
 # Would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM=${HOME}/.zsh/custom
@@ -16,10 +15,6 @@ ZSH_CUSTOM=${HOME}/.zsh/custom
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
-
-# .zshrcがあるディレクトリのパスを取得する
-# source: http://qiita.com/yudoufu/items/48cb6fb71e5b498b2532
-ZSHRCDIR=$(cd "$(dirname "$0")"; pwd)
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -75,7 +70,7 @@ bindkey -e
 setopt NOHUP
 
 # historyの設定
-HISTFILE=${ZSHRCDIR}/.zsh/.histfile
+HISTFILE=${HOME}/.zsh-history
 HISTSIZE=10000
 SAVEHIST=10000
 setopt extended_history
