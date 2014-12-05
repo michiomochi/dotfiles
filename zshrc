@@ -95,6 +95,7 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i -v'
 alias j='jobs'
+alias be='bundle exec'
 case "${OSTYPE}" in
     # Mac
     darwin*)
@@ -147,3 +148,6 @@ function cdup() {
 }
 zle -N cdup
 bindkey '\^' cdup
+
+# local settings
+[ -s ${HOME}/.zshrc.local ] && source ${HOME}/.zshrc.local
