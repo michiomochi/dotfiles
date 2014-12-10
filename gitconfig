@@ -12,3 +12,5 @@
         required = true
 [github]
         user = michiomochi
+[push]
+        default = simple
