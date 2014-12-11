@@ -14,3 +14,5 @@
         user = michiomochi
 [push]
         default = simple
+[diff]
+        ignoreSubmodules = dirty

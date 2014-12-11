@@ -11,6 +11,8 @@ LOGFILE=${LOGDIR}/setup_`date +%m%d%H%M%S`.log
 export PATH=${BINDIR}:${PATH}
 export LD_LIBRARY_PATH=${LIBDIR}:${LD_LIBRARY_PATH}
 
+# git 2.0 dependencies this package
+# curl-devel expat-devel gettext-devel openssl-devel zlib-devel gcc perl-ExtUtils-MakeMaker
 function git_install() {
     echo 'gitのインストールを開始します'
     cd ${PREFIX}/src
