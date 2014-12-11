@@ -57,5 +57,5 @@ ln -sf ${PWD}/gitconfig ~/.gitconfig
 
 #ln -sf ${PWD}/peco_config.json ~/.config/peco/config.json
 
-echo "Gen Symbolic Link bin => ~/.bin"
-ln -sf ${PWD}/bin ~/.bin
+echo "Gen Symbolic Link local => ~/local"
+ln -sf ${PWD}/local ~/local

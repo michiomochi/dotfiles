@@ -41,7 +41,7 @@ export PATH=/usr/sbin:${PATH}
 export PATH=/usr/bin:${PATH}
 export PATH=/sbin:${PATH}
 export PATH=/bin:${PATH}
-export PATH=${HOME}/.bin:${PATH}
+export PATH=${HOME}/local/bin:${PATH}
 typeset -U path PATH
 
 # 補完機能強化
