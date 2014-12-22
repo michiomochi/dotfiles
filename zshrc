@@ -47,11 +47,11 @@ typeset -U path PATH
 # 補完機能強化
 autoload -U compinit; compinit
 # 補完候補を一覧で表示
-setopt auto_list 
+setopt auto_list
 # 補完キー連打で補完候補を順に表示
-setopt auto_menu 
+setopt auto_menu
 # 補完候補をできるだけ詰めて表示
-setopt list_packed 
+setopt list_packed
 # 補完候補にファイルの種類も表示
 setopt list_types
 # 補完候補にaliasを含める
@@ -123,16 +123,8 @@ local currentDir='%/'
 local userName='%n'
 local hostName='%M'
 PROMPT="%B%F{red}${userName}@${hostName}%f%b"$'\n'"%B%F{blue}[${currentDir}]%f%b"$'\n'"> "
-#RPROMPT="%B%F{white}[${currentTime}]%f%b"
 # }}}
 # }}}
-
-# Github api token for Homebrew
-export HOMEBREW_GITHUB_API_TOKEN=600d6125e44b1fcfdfc4adc3f38a588c0eefbce1
-
-# phpenv
-export PATH=${HOME}/.phpenv/bin:${HOME}/.phpenv/shims:${PATH}
-eval "$(phpenv init - zsh)"
 
 # rbenv
 export PATH=${HOME}/.rbenv/bin:${HOME}/.rbenv/shims:${PATH}
@@ -140,15 +132,6 @@ eval "$(rbenv init - zsh)"
 
 # ターミナルの定義
 export TERM=xterm-256color
-
-# ^でcd
-function cdup() {
-    echo
-    cd ..
-    zle reset-prompt
-}
-zle -N cdup
-bindkey '\^' cdup
 
 # local settings
 [ -s ${HOME}/.zshrc.local ] && source ${HOME}/.zshrc.local
