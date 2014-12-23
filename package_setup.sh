@@ -11,9 +11,13 @@ LOGFILE=${LOGDIR}/setup_`date +%m%d%H%M%S`.log
 export PATH=${BINDIR}:${PATH}
 export LD_LIBRARY_PATH=${LIBDIR}:${LD_LIBRARY_PATH}
 
-# git 2.0 dependencies this package
+# git 2.2.0 dependencies this package
 # curl-devel expat-devel gettext-devel openssl-devel zlib-devel gcc perl-ExtUtils-MakeMaker
 function git_install() {
+    if [ -f ${BINDIR}/git ]; then
+        echo '既にgitはインストールされています'
+        return 0
+    fi
     echo 'gitのインストールを開始します'
     cd ${PREFIX}/src
     if [ ! -f git-2.2.0.tar.gz ]; then
@@ -25,8 +29,39 @@ function git_install() {
     echo 'gitをコンパイル、インストールします'
     env LDFLAGS=-L${PREFIX}/lib CPPFLAGS=-I${PREFIX}/include ./configure --prefix=${PREFIX} > ${LOGFILE} 2>&1 || return 1
     make -j2 > ${LOGFILE} 2>&1 || return 1
-    make install > ${LOGFILE} 2>&1 | return 1
+    make install > ${LOGFILE} 2>&1 || return 1
     echo 'gitがインストールされました'
+}
+
+# vim 7.4 dependencies this package
+# lua
+function vim_install() {
+    if [ -f ${BINDIR}/vim ]; then
+        echo '既にvimはインストールされています'
+        return 0
+    fi
+    version='7.4'
+    echo "vim${version}のインストールを開始します"
+    cd ${PREFIX}/src
+    if [ ! -f "vim-${version}.tar.bz2" ]; then
+        echo "vim-${version}.tar.bz2をダウンロードします"
+        wget http://ftp.vim.org/pub/vim/unix/vim-${version}.tar.bz2 > ${LOGFILE} 2>&1 || return 1
+        tar xvf vim-${version}.tar.bz2 > ${LOGFILE} 2>&1 || return 1
+    fi
+    cd vim74
+    ./configure --prefix=${HOME}/local \
+                --enable-perlinterp=yes \
+                --enable-pythoninterp=yes \
+                --enable-python3interp=yes \
+                --enable-rubyinterp=yes \
+                --disable-selinux \
+                --with-features=huge \
+                --enable-multibyte=yes \
+                --enable-luainterp=yes \
+                --with-lua-prefix=${HOME}/local > ${LOGFILE} 2>&1 || return 1
+    make -j2 > ${LOGFILE} 2>&1 || return 1
+    make install > ${LOGFILE} 2>&1 || return 1
+    echo "vim${version}がインストールされました"
 }
 
 function error_catch() {
@@ -35,3 +70,4 @@ function error_catch() {
 }
 
 git_install || error_catch
+vim_install || error_catch
