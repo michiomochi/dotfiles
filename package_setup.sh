@@ -34,7 +34,7 @@ function git_install() {
 }
 
 # vim 7.4 dependencies this package
-# lua
+# lua perl-ExtUtils-Embed perl python ruby
 function vim_install() {
     if [ -f ${BINDIR}/vim ]; then
         echo '既にvimはインストールされています'
@@ -50,6 +50,7 @@ function vim_install() {
     fi
     cd vim74
     ./configure --prefix=${HOME}/local \
+                --enable-multibyte \
                 --enable-perlinterp=yes \
                 --enable-pythoninterp=yes \
                 --enable-python3interp=yes \
@@ -57,8 +58,7 @@ function vim_install() {
                 --disable-selinux \
                 --with-features=huge \
                 --enable-multibyte=yes \
-                --enable-luainterp=yes \
-                --with-lua-prefix=${HOME}/local > ${LOGFILE} 2>&1 || return 1
+                --enable-luainterp=yes > ${LOGFILE} 2>&1 || return 1
     make -j2 > ${LOGFILE} 2>&1 || return 1
     make install > ${LOGFILE} 2>&1 || return 1
     echo "vim${version}がインストールされました"
