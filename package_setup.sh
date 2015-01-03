@@ -65,6 +65,8 @@ EOF
     brew install wget
     brew install xz
     brew install coreutils
+    brew install rbenv
+    brew install ruby-build
 
     # package name source: https://github.com/caskroom/homebrew-cask/tree/master/Casks
     # install where ~/Applications directory
