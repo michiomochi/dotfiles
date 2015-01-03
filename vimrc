@@ -288,7 +288,6 @@ function! UpdateBackupFile()
 endfunction
 " }}}
 " }}}
-" modelineにてvimrc専用の設定を記述
 " vim: foldmethod=marker
 " vim: foldcolumn=3
 " vim: foldlevel=0
