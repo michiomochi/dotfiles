@@ -1,18 +1,18 @@
 [user]
-        name = Michikawa Masayoshi
-        email = michikawa.masayoshi@gmail.com
+    name = Michikawa Masayoshi
+    email = michikawa.masayoshi@gmail.com
 [core]
-        editor = vim
-        autoCRLF = false
+    editor = vim
+    autoCRLF = false
 [color]
-        ui = auto
+    ui = auto
 [filter "media"]
-        clean = git media clean %f
-        smudge = git media smudge %f
-        required = true
+    required = true
+    clean = git media clean %f
+    smudge = git media smudge %f
 [github]
-        user = michiomochi
+    user = michiomochi
 [push]
-        default = simple
+    default = simple
 [diff]
-        ignoreSubmodules = dirty
+    ignoreSubmodules = dirty
