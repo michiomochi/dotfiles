@@ -30,6 +30,9 @@ source ${ZSH}/oh-my-zsh.sh
     export PATH=/usr/local/sbin:${PATH}
     export PATH=${HOME}/local/bin:${PATH}
     typeset -U path PATH
+
+    # setting cdpath
+    cdpath=(~/Dropbox/works/kampodesk/developments/projects/)
 # }}}
 # general {{{1
 # 表示言語設定
