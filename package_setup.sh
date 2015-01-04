@@ -90,7 +90,6 @@ EOF
     brew cask install fluid
     brew cask install intellij-idea
     brew cask install macvim
-    brew cask install transmit
     brew cask install iterm2
     brew cask install skitch
     brew cask install bartender
@@ -136,6 +135,7 @@ Please manually install to these package by iTunes
 ・MarsEdit
 ・Readkit
 ・StuffIt Expander
+・Transmit
 EOF
     ;;
 linux*)
