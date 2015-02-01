@@ -136,6 +136,7 @@ Please manually install to these package by iTunes
 ・Readkit
 ・StuffIt Expander
 ・Transmit
+・Pushbullet
 EOF
     ;;
 linux*)
