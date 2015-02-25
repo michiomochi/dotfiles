@@ -28,6 +28,7 @@ NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'chase/vim-ansible-yaml'
 " color scheme
 NeoBundle 'tomasr/molokai'
 " ディレクトリをサイドバーにツリー表示
