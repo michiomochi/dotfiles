@@ -102,6 +102,7 @@ EOF
     # install where /Applications directory
     brew cask install google-cloud-sdk
     brew cask install flash
+    brew cask install java
     brew cask install xquartz
     brew cask install google-japanese-ime
     brew cask install silverlight
