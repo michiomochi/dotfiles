@@ -29,6 +29,7 @@ source ${ZSH}/oh-my-zsh.sh
     export PATH=/usr/local/bin:${PATH}
     export PATH=/usr/local/sbin:${PATH}
     export PATH=${HOME}/local/bin:${PATH}
+    export PATH=/usr/local/heroku/bin:${PATH}
     typeset -U path PATH
 
     # setting cdpath
