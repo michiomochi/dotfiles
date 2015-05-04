@@ -31,9 +31,6 @@ source ${ZSH}/oh-my-zsh.sh
     export PATH=${HOME}/local/bin:${PATH}
     export PATH=/usr/local/heroku/bin:${PATH}
     typeset -U path PATH
-
-    # setting cdpath
-    cdpath=(~/Dropbox/works/kampodesk/developments/projects/)
 # }}}
 # general {{{1
 # 表示言語設定
