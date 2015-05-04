@@ -36,6 +36,7 @@ EOF
     brew install binutils
     brew install boot2docker
     brew install cmigemo
+    brew install coreutils
     brew install docker
     brew install git --without-completions # source: https://github.com/robbyrussell/oh-my-zsh/issues/2394
     brew install gnu-sed
@@ -51,6 +52,7 @@ EOF
     brew install markdown
     brew install mercurial
     brew install nginx
+    brew install npm
     brew install pkg-config
     brew install postgresql
     brew install qt
@@ -58,13 +60,13 @@ EOF
     brew install redis
     brew install stunnel
     brew install terminal-notifier
+    brew install tig
     brew install tree
     brew install unrar
     brew install w3m
     brew install webkit2png
     brew install wget
     brew install xz
-    brew install coreutils
     brew install rbenv
     brew install ruby-build
 
