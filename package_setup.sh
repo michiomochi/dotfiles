@@ -53,6 +53,7 @@ EOF
     brew install mercurial
     brew install nginx
     brew install npm
+    brew install packer
     brew install pkg-config
     brew install postgresql
     brew install qt
