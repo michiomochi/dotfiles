@@ -57,8 +57,10 @@ EOF
     brew install pkg-config
     brew install postgresql
     brew install qt
+    brew install rbenv
     brew install readline
     brew install redis
+    brew install ruby-build
     brew install stunnel
     brew install terminal-notifier
     brew install tig
@@ -68,8 +70,6 @@ EOF
     brew install webkit2png
     brew install wget
     brew install xz
-    brew install rbenv
-    brew install ruby-build
 
     # package name source: https://github.com/caskroom/homebrew-cask/tree/master/Casks
     # install where ~/Applications directory
