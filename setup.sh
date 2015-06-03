@@ -59,3 +59,6 @@ ln -sf ${PWD}/gitconfig ~/.gitconfig
 
 echo "Gen Symbolic Link local => ~/local"
 ln -sf ${PWD}/local ~/local
+
+echo "Gen Symbolic Link tmuxinator => ~/.tmuxinator"
+ln -sf ${PWD}/tmuxinator ~/.tmuxinator
