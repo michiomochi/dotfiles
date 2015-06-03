@@ -110,7 +110,6 @@ PROMPT="%B%F{red}${userName}@${hostName}%f%b"$'\n'"%B%F{blue}[${currentDir}]%f%b
 # }}}
 # environment variable {{{1
 export EDITOR='vim'
-export SHELL='zsh'
 # }}}
 
 # rbenv
