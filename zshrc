@@ -109,7 +109,8 @@ local hostName='%M'
 PROMPT="%B%F{red}${userName}@${hostName}%f%b"$'\n'"%B%F{blue}[${currentDir}]%f%b"$'\n'"> "
 # }}}
 # environment variable {{{1
-export EDITOR='vim'
+export EDITOR='/usr/local/bin/vim'
+export SHELL='/usr/local/bin/zsh'
 # }}}
 
 # rbenv
@@ -119,6 +120,9 @@ eval "$(rbenv init - zsh)"
 export TERM=xterm-256color
 # import local settings
 [ -s ${HOME}/.zshrc.local ] && source ${HOME}/.zshrc.local
+
+# load tmuxinator
+source ${HOME}/.tmuxinator/tmuxinator.zsh
 
 # vim: foldmethod=marker
 # vim: foldcolumn=3
