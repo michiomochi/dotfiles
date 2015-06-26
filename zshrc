@@ -99,6 +99,7 @@ alias cp='cp -i'
 alias mv='mv -i -v'
 alias j='jobs'
 alias be='bundle exec'
+alias sidekiq='bundle exec sidekiq -C config/sidekiq.yml'
 
 # prompts {{{1
 autoload colors && colors
