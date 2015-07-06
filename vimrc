@@ -83,9 +83,9 @@ set smartcase
 " swpファイルの保存ディレクトリを設定
 set directory=$VIMRCDIR/.vim/backup
 " タブ表示幅
-set tabstop=4
+set tabstop=2
 " タブ挿入幅
-set shiftwidth=4
+set shiftwidth=2
 " タブの代わりにスペースを挿入する
 set expandtab
 " カーソル移動が行頭、行末で止まらないようにする
@@ -133,6 +133,7 @@ nnoremap L 10l
 " 言語ごとの設定 {{{1
 " PHP補完を有効化
 autocmd FileType php,ctp :set dictionary=~/.vim/dict/php.dict
+autocmd FileType rb :set dictionary=~/.vim/dict/ruby.dict
 " }}}
 " 表示設定 {{{1
 " colorSchemeの設定
