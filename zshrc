@@ -38,7 +38,8 @@ export LANG=en_US.UTF-8
 setopt print_eight_bit
 
 # 補完機能強化
-# autoload -U compinit; compinit
+fpath=($(brew --prefix)/share/zsh/functions $fpath)
+autoload -U compinit; compinit
 # 補完候補を一覧で表示
 setopt auto_list
 # 補完キー連打で補完候補を順に表示
@@ -92,7 +93,6 @@ esac
 alias vi='vim'
 alias gst='git status -sb'
 alias gch='git checkout'
-alias g='git'
 alias gp='git push -u'
 alias rm='rm -i'
 alias cp='cp -i'
@@ -100,6 +100,8 @@ alias mv='mv -i -v'
 alias j='jobs'
 alias be='bundle exec'
 alias sidekiq='bundle exec sidekiq -C config/sidekiq.yml'
+
+setopt no_complete_aliases
 
 # prompts {{{1
 autoload colors && colors
