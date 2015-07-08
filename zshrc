@@ -22,14 +22,14 @@ plugins=(git autojump history-substring-search rbenv cp rsync brew)
 source ${ZSH}/oh-my-zsh.sh
 # }}}
 # PATH {{{1
-    export PATH=/bin:${PATH}
-    export PATH=/sbin:${PATH}
-    export PATH=/usr/bin:${PATH}
-    export PATH=/usr/sbin:${PATH}
-    export PATH=/usr/local/bin:${PATH}
-    export PATH=/usr/local/sbin:${PATH}
     export PATH=${HOME}/local/bin:${PATH}
+    export PATH=/usr/sbin:${PATH}
+    export PATH=/usr/bin:${PATH}
+    export PATH=/sbin:${PATH}
+    export PATH=/bin:${PATH}
     export PATH=/usr/local/heroku/bin:${PATH}
+    export PATH=/usr/local/sbin:${PATH}
+    export PATH=/usr/local/bin:${PATH}
     typeset -U path PATH
 # }}}
 # general {{{1
