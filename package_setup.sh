@@ -30,6 +30,7 @@ EOF
     brew tap homebrew/binary
 
     brew install ack
+    brew install ag
     brew install ansible
     brew install aspell
     brew install autoconf
@@ -80,6 +81,7 @@ EOF
     brew cask install dropbox
     brew cask install firefox
     brew cask install github
+    brew cask install github-desktop
     brew cask install gyazo
     brew cask install kobito
     brew cask install licecap
