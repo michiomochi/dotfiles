@@ -55,9 +55,9 @@ EOF
     brew install nginx
     brew install npm
     brew install packer
+    brew install phantomjs
     brew install pkg-config
     brew install postgresql
-    brew install qt
     brew install rbenv
     brew install readline
     brew install redis
