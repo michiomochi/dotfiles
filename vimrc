@@ -101,6 +101,9 @@ set scrolloff=5
 set backspace=indent,eol,start
 " マウス有効化
 set mouse=a
+" tmpファイルを編集するときはbackupを作成しない
+" source: http://d.hatena.ne.jp/yuyarin/20100225/1267084794
+set backupskip=/tmp/*,/private/tmp/*
 " nerdtreeの設定
     " ファイル編集時自動で表示
     if !argc()
@@ -116,17 +119,7 @@ set mouse=a
 " キーマッピング {{{1
 " noremap = 全モード
 " vnoremap = Visualモード
-" 高速移動
-vnoremap H 10h
-vnoremap J 10j
-vnoremap K 10k
-vnoremap L 10l
 " nnoremap = Normalモード
-" 高速移動
-nnoremap H 10h
-nnoremap J 10j
-nnoremap K 10k
-nnoremap L 10l
 " cnoremap = Commandモード
 " inoremap = Insertモード
 " }}}
