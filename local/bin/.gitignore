@@ -4,3 +4,4 @@
 # allow any
 !.gitignore
 !git-sync
+!git-remove-merged-branch
