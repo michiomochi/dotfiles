@@ -71,6 +71,7 @@ EOF
     brew install webkit2png
     brew install wget
     brew install xz
+    brew install z
 
     # package name source: https://github.com/caskroom/homebrew-cask/tree/master/Casks
     # install where ~/Applications directory
