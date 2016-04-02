@@ -38,6 +38,7 @@ EOF
     brew install boot2docker
     brew install cmigemo
     brew install coreutils
+    brew install ctags
     brew install docker
     brew install git --without-completions # source: https://github.com/robbyrussell/oh-my-zsh/issues/2394
     brew install gnu-sed
@@ -55,7 +56,8 @@ EOF
     brew install nginx
     brew install npm
     brew install packer
-    brew install phantomjs
+    # Remove formula
+    # brew install phantomjs
     brew install pkg-config
     brew install postgresql
     brew install rbenv
@@ -94,7 +96,8 @@ EOF
     brew cask install vlc
     brew cask install paw
     brew cask install fluid
-    brew cask install intellij-idea
+    brew cask install terraform
+    #brew cask install intellij-idea
     brew cask install macvim
     brew cask install iterm2
     brew cask install skitch
@@ -111,7 +114,8 @@ EOF
     brew cask install java
     brew cask install xquartz
     brew cask install google-japanese-ime
-    brew cask install silverlight
+    # because source notfound
+    # brew cask install silverlight
     brew cask install vagrant
     # install where /Applications directory and need to create symlink to ~/Applications directory
     brew cask install karabiner && ln -s /Applications/Karabiner.app ~/Applications/ || true
@@ -130,7 +134,6 @@ Please manually install to these package by iTunes
 ・Xcode
 ・Airmail2
 ・Sunrize
-・Slack
 ・Pocket
 ・1Password
 ・LINE
