@@ -22,7 +22,6 @@ plugins=(git autojump history-substring-search rbenv cp rsync brew)
 source ${ZSH}/oh-my-zsh.sh
 # }}}
 # PATH {{{1
-    export PATH=${HOME}/local/bin:${PATH}
     export PATH=/usr/sbin:${PATH}
     export PATH=/usr/bin:${PATH}
     export PATH=/sbin:${PATH}
@@ -30,6 +29,7 @@ source ${ZSH}/oh-my-zsh.sh
     export PATH=/usr/local/heroku/bin:${PATH}
     export PATH=/usr/local/sbin:${PATH}
     export PATH=/usr/local/bin:${PATH}
+    export PATH=${HOME}/local/bin:${PATH}
     typeset -U path PATH
 # }}}
 # general {{{1
@@ -72,6 +72,11 @@ setopt extended_history
 setopt append_history
 setopt hist_no_store
 setopt hist_ignore_dups
+
+# pecoを使用したincremental searchの有効化
+source ${HOME}/.zsh/select_history_by_peco.sh
+zle -N select_history_by_peco
+bindkey '^r' select_history_by_peco
 # }}}
 # aliases {{{1
 case "${OSTYPE}" in
@@ -81,6 +86,7 @@ case "${OSTYPE}" in
         alias ll='ls -l -a -G'
         alias la='ls -A -G'
         alias l='ls -v -A -G'
+        alias updatedb='/usr/libexec/locate.updatedb'
         ;;
     # Linux
     linux*)
@@ -99,7 +105,7 @@ alias cp='cp -i'
 alias mv='mv -i -v'
 alias j='jobs'
 alias be='bundle exec'
-alias sidekiq='bundle exec sidekiq -C config/sidekiq.yml'
+alias weather='curl -4 wttr.in/Tokyo'
 
 setopt no_complete_aliases
 
@@ -126,6 +132,9 @@ export TERM=xterm-256color
 
 # load tmuxinator
 source ${HOME}/.tmuxinator/tmuxinator.zsh
+
+# direnv
+eval "$(direnv hook zsh)"
 
 # vim: foldmethod=marker
 # vim: foldcolumn=3
