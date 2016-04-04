@@ -36,9 +36,9 @@ EOF
     brew install autoconf
     brew install binutils
     brew install boot2docker
-    brew install cmigemo
     brew install coreutils
     brew install ctags
+    brew install direnv
     brew install docker
     brew install git --without-completions # source: https://github.com/robbyrussell/oh-my-zsh/issues/2394
     brew install gnu-sed
@@ -50,7 +50,6 @@ EOF
     brew install jq
     brew install jsl
     brew install kindlegen
-    brew install lv
     brew install markdown
     brew install mercurial
     brew install nginx
@@ -77,76 +76,50 @@ EOF
 
     # package name source: https://github.com/caskroom/homebrew-cask/tree/master/Casks
     # install where ~/Applications directory
-    brew install caskroom/cask/brew-cask
     brew cask install appcleaner
-    brew cask install atom
     brew cask install caffeine
     brew cask install dropbox
     brew cask install firefox
-    brew cask install github
-    brew cask install github-desktop
-    brew cask install gyazo
-    brew cask install kobito
     brew cask install licecap
-    brew cask install lyn
-    brew cask install sequel-pro
     brew cask install skype
-    brew cask install sleipnir
-    brew cask install sourcetree
     brew cask install vlc
     brew cask install paw
     brew cask install fluid
     brew cask install terraform
-    #brew cask install intellij-idea
     brew cask install macvim
     brew cask install iterm2
     brew cask install skitch
     brew cask install bartender
     brew cask install alfred
     brew cask install bettertouchtool
-    brew cask install gimp
     brew cask install libreoffice
     brew cask install dash
     brew cask install disk-inventory-x
-    # install where /Applications directory
-    brew cask install google-cloud-sdk
     brew cask install flash
     brew cask install java
     brew cask install xquartz
     brew cask install google-japanese-ime
-    # because source notfound
-    # brew cask install silverlight
     brew cask install vagrant
-    # install where /Applications directory and need to create symlink to ~/Applications directory
-    brew cask install karabiner && ln -s /Applications/Karabiner.app ~/Applications/ || true
-    brew cask install virtualbox && ln -s /Applications/VirtualBox.app ~/Applications/ || true
-    brew cask install totalfinder && ln -s /Applications/TotalFinder.app ~/Applications/ || true
-    brew cask install microsoft-office && ln -s /Applications/Microsoft\ Office\ 2011 ~/Applications/ || true
-    brew cask install justinmind && ln -s /Applications/Justinmind.app ~/Applications/ || true
-    # need to appointed installing directory
-    brew cask install google-chrome --caskroom='/Applications'
-    brew cask install istat-menus --caskroom='/Applications'
-    # create symlink to ~/Applications directory from /Applications directory
-    ln -s /Applications/Utilities ~/Applications/ || true
+    brew cask install karabiner
+    brew cask install virtualbox
+    brew cask install google-chrome
+    brew cask install istat-menus
 
     cat << EOF
 Please manually install to these package by iTunes
-・Xcode
-・Airmail2
-・Sunrize
-・Pocket
 ・1Password
-・LINE
-・ReadKit
-・TweedDeck by Twitter
-・Pixelmator
-・MARKETSPEED
+・Airmail2
 ・iMage Tools
-・MarsEdit
-・Readkit
-・StuffIt Expander
-・Transmit
+・LINE
+・Monosnap
+・Pixelmator
 ・Pushbullet
+・Quiver
+・TweedDeck by Twitter
+・Slack
+・Sunrize
+・StuffIt Expander
+・Xcode
 EOF
     ;;
 linux*)
