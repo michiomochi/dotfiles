@@ -36,9 +36,9 @@ EOF
     brew install autoconf
     brew install binutils
     brew install boot2docker
-    brew install cmigemo
     brew install coreutils
     brew install ctags
+    brew install direnv
     brew install docker
     brew install git --without-completions # source: https://github.com/robbyrussell/oh-my-zsh/issues/2394
     brew install gnu-sed
@@ -50,23 +50,25 @@ EOF
     brew install jq
     brew install jsl
     brew install kindlegen
-    brew install lv
+    brew install libxml2
+    brew install libxslt
+    brew install libiconv
     brew install markdown
     brew install mercurial
-    brew install nginx
+    brew install mysql
     brew install npm
     brew install packer
-    # Remove formula
-    # brew install phantomjs
+    brew install peco
+    brew install phantomjs
     brew install pkg-config
     brew install postgresql
     brew install rbenv
     brew install readline
     brew install redis
     brew install ruby-build
-    brew install stunnel
     brew install terminal-notifier
     brew install tig
+    brew install tmux
     brew install tree
     brew install unrar
     brew install w3m
@@ -75,78 +77,50 @@ EOF
     brew install xz
     brew install z
 
-    # package name source: https://github.com/caskroom/homebrew-cask/tree/master/Casks
-    # install where ~/Applications directory
-    brew install caskroom/cask/brew-cask
-    brew cask install appcleaner
-    brew cask install atom
-    brew cask install caffeine
-    brew cask install dropbox
-    brew cask install firefox
-    brew cask install github
-    brew cask install github-desktop
-    brew cask install gyazo
-    brew cask install kobito
-    brew cask install licecap
-    brew cask install lyn
-    brew cask install sequel-pro
-    brew cask install skype
-    brew cask install sleipnir
-    brew cask install sourcetree
-    brew cask install vlc
-    brew cask install paw
-    brew cask install fluid
-    brew cask install terraform
-    #brew cask install intellij-idea
-    brew cask install macvim
-    brew cask install iterm2
-    brew cask install skitch
-    brew cask install bartender
-    brew cask install alfred
-    brew cask install bettertouchtool
-    brew cask install gimp
-    brew cask install libreoffice
-    brew cask install dash
-    brew cask install disk-inventory-x
-    # install where /Applications directory
-    brew cask install google-cloud-sdk
-    brew cask install flash
-    brew cask install java
-    brew cask install xquartz
-    brew cask install google-japanese-ime
-    # because source notfound
-    # brew cask install silverlight
-    brew cask install vagrant
-    # install where /Applications directory and need to create symlink to ~/Applications directory
-    brew cask install karabiner && ln -s /Applications/Karabiner.app ~/Applications/ || true
-    brew cask install virtualbox && ln -s /Applications/VirtualBox.app ~/Applications/ || true
-    brew cask install totalfinder && ln -s /Applications/TotalFinder.app ~/Applications/ || true
-    brew cask install microsoft-office && ln -s /Applications/Microsoft\ Office\ 2011 ~/Applications/ || true
-    brew cask install justinmind && ln -s /Applications/Justinmind.app ~/Applications/ || true
-    # need to appointed installing directory
-    brew cask install google-chrome --caskroom='/Applications'
-    brew cask install istat-menus --caskroom='/Applications'
-    # create symlink to ~/Applications directory from /Applications directory
-    ln -s /Applications/Utilities ~/Applications/ || true
-
     cat << EOF
-Please manually install to these package by iTunes
-・Xcode
-・Airmail2
-・Sunrize
-・Pocket
+Please manually install to these package
+_appcleaner
+_caffeine
+_dropbox
+_firefox
+_licecap
+_skype
+_vlc
+_paw
+_fluid
+_terraform
+_macvim
+_iterm2
+_skitch
+_bartender
+_alfred
+_bettertouchtool
+_libreoffice
+_dash
+_disk-inventory-x
+_flash
+_java
+_xquartz
+_google-japanese-ime
+_vagrant
+_karabiner
+_virtualbox
+_google-chrome
+_istat-menus
+Please manually install to these package by Appstore
 ・1Password
-・LINE
-・ReadKit
-・TweedDeck by Twitter
-・Pixelmator
-・MARKETSPEED
+・Airmail2
 ・iMage Tools
-・MarsEdit
-・Readkit
-・StuffIt Expander
-・Transmit
+・LINE
+・Monosnap
+・Pixelmator
 ・Pushbullet
+・Quiver
+・TweedDeck by Twitter
+・Slack
+・Sunrize
+・StuffIt Expander
+・Xcode
 EOF
     ;;
 linux*)
