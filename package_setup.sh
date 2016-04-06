@@ -50,22 +50,25 @@ EOF
     brew install jq
     brew install jsl
     brew install kindlegen
+    brew install libxml2
+    brew install libxslt
+    brew install libiconv
     brew install markdown
     brew install mercurial
-    brew install nginx
+    brew install mysql
     brew install npm
     brew install packer
-    # Remove formula
-    # brew install phantomjs
+    brew install peco
+    brew install phantomjs
     brew install pkg-config
     brew install postgresql
     brew install rbenv
     brew install readline
     brew install redis
     brew install ruby-build
-    brew install stunnel
     brew install terminal-notifier
     brew install tig
+    brew install tmux
     brew install tree
     brew install unrar
     brew install w3m
@@ -74,39 +77,38 @@ EOF
     brew install xz
     brew install z
 
-    # package name source: https://github.com/caskroom/homebrew-cask/tree/master/Casks
-    # install where ~/Applications directory
-    brew cask install appcleaner
-    brew cask install caffeine
-    brew cask install dropbox
-    brew cask install firefox
-    brew cask install licecap
-    brew cask install skype
-    brew cask install vlc
-    brew cask install paw
-    brew cask install fluid
-    brew cask install terraform
-    brew cask install macvim
-    brew cask install iterm2
-    brew cask install skitch
-    brew cask install bartender
-    brew cask install alfred
-    brew cask install bettertouchtool
-    brew cask install libreoffice
-    brew cask install dash
-    brew cask install disk-inventory-x
-    brew cask install flash
-    brew cask install java
-    brew cask install xquartz
-    brew cask install google-japanese-ime
-    brew cask install vagrant
-    brew cask install karabiner
-    brew cask install virtualbox
-    brew cask install google-chrome
-    brew cask install istat-menus
-
     cat << EOF
-Please manually install to these package by iTunes
+Please manually install to these package
+_appcleaner
+_caffeine
+_dropbox
+_firefox
+_licecap
+_skype
+_vlc
+_paw
+_fluid
+_terraform
+_macvim
+_iterm2
+_skitch
+_bartender
+_alfred
+_bettertouchtool
+_libreoffice
+_dash
+_disk-inventory-x
+_flash
+_java
+_xquartz
+_google-japanese-ime
+_vagrant
+_karabiner
+_virtualbox
+_google-chrome
+_istat-menus
+
+Please manually install to these package by Appstore
 ・1Password
 ・Airmail2
 ・iMage Tools
