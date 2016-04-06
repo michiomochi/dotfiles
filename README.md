@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 install Xcode from app store
 
 2. modify mac name
@@ -42,17 +41,7 @@ $ export HOMEBREW_DEVELOPER=true
 $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-6. Install and enable apple-gcc42 for el capitan
-
-```
-$ brew tap homebrew/dupes
-$ brew install apple-gcc42
-$ export CC=/usr/local/Cellar/apple-gcc42/4.2.1-5666.3/bin/gcc-4.2
-$ export CXX=/usr/local/Cellar/apple-gcc42/4.2.1-5666.3/bin/g++-4.2
-$ export CPP=/usr/local/Cellar/apple-gcc42/4.2.1-5666.3/bin/cpp-4.2
-```
-
-7. Prepare dotfiles
+6. Prepare dotfiles
 
 ```
 $ cd ${HOME}
@@ -63,4 +52,3 @@ $ git submodule update
 $ ./setup.sh
 $ ./package_setup.sh
 ```
->>>>>>> 957dbbb72609a18a4377f1955d888aa01eb065a5
