@@ -36,6 +36,7 @@ EOF
     brew install autoconf
     brew install binutils
     brew install boot2docker
+    brew install cmake
     brew install coreutils
     brew install ctags
     brew install direnv
@@ -46,13 +47,13 @@ EOF
     brew install go
     brew install heroku-toolbelt
     brew install hub
+    brew install icu4c
     brew install imagemagick
     brew install jq
     brew install jsl
     brew install kindlegen
     brew install libxml2
     brew install libxslt
-    brew install libiconv
     brew install markdown
     brew install mercurial
     brew install mysql
