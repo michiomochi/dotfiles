@@ -1,47 +1,30 @@
-install Xcode from app store
-
-2. modify mac name
-System preferences > Sharing
-
-Mute alert sound
-System preferences > Sounds > Sounds effect > Mute
-
-```
-$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-$ cd ${HOME}
-$ git clone https://github.com/michiomochi/dotfiles
-$ cd dotfiles
-$ git submodule init
-$ git submodule update
-```
-
-=======
 1. Install Xcode from app store
 
 2. Install command line tool
+https://developer.apple.com/downloads/
+
+4. Sign to xcode license
 
 ```
-$ xcode-select --install
-$ sudo xcodebuild --license
+$ sudo xcodebuild -license
 ```
 
-3. Modify mac name
+5. Modify mac name
 
 System preferences > Sharing
 
-4. Mute alert sound
+5. Mute alert sound
 
 System preferences > Sounds > Sounds effect > Mute
 
 
-5. Install Homebrew
+6. Install Homebrew
 
 ```
-$ export HOMEBREW_DEVELOPER=true
 $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-6. Prepare dotfiles
+7. Prepare dotfiles
 
 ```
 $ cd ${HOME}
