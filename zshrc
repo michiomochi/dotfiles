@@ -117,10 +117,6 @@ local userName='%n'
 local hostName='%M'
 PROMPT="%B%F{red}${userName}@${hostName}%f%b"$'\n'"%B%F{blue}[${currentDir}]%f%b"$'\n'"> "
 # }}}
-# environment variables {{{1
-export EDITOR='vim'
-export SHELL='zsh'
-# }}}
 
 # rbenv
 export PATH=${HOME}/.rbenv/bin:${HOME}/.rbenv/shims:${PATH}
