@@ -62,3 +62,6 @@ ln -sf ${PWD}/local ~/local
 
 echo "Gen Symbolic Link tmuxinator => ~/.tmuxinator"
 ln -sf ${PWD}/tmuxinator ~/.tmuxinator
+
+echo "Gen Symbolic Link gitignore => ~/.gitignore"
+ln -sf ${PWD}/gitignore ~/.gitignore
