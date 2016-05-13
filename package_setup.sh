@@ -79,6 +79,9 @@ EOF
     brew install xz
     brew install z
 
+    sudo easy_install pip
+    sudo pip install awscli --ignore-installed six
+
     cat << EOF
 Please manually install to these package
 _appcleaner
