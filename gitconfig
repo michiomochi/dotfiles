@@ -5,7 +5,7 @@
 [core]
   editor = vim
   autoCRLF = false
-  excludedfile = ~/.gitignore
+  excludesfile = ~/.gitignore
 [color]
   ui = auto
 [filter "media"]
