@@ -106,6 +106,8 @@ alias mv='mv -i -v'
 alias j='jobs'
 alias be='bundle exec'
 alias weather='curl -4 wttr.in/Tokyo'
+alias mux='tmuxinator'
+alias rs='bundle exec rails server -b 0.0.0.0'
 
 setopt no_complete_aliases
 
