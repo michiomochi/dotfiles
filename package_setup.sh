@@ -57,6 +57,7 @@ EOF
     brew install markdown
     brew install mercurial
     brew install mysql
+    brew install ngrok
     brew install npm
     brew install packer
     brew install peco
