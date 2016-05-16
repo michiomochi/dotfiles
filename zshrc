@@ -108,6 +108,7 @@ alias be='bundle exec'
 alias weather='curl -4 wttr.in/Tokyo'
 alias mux='tmuxinator'
 alias rs='bundle exec rails server -b 0.0.0.0'
+alias ctag_gen="ctags -R -f .tags --exclude='*.js' --exclude='node_modules' --exclude='*.scss' --exclude='tmp' --exclude='spec' --exclude='coverage' --exclude='*.html' --exclude='*.jsx' $(bundle show --paths) ."
 
 setopt no_complete_aliases
 
