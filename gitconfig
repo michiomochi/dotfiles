@@ -24,3 +24,6 @@
 	required = true
 [alias]
 	pr-setup = config --add remote.origin.fetch +refs/pull/*/head:refs/remotes/origin/pr/*
+  ignore = update-index --assume-unchanged
+  unignore = update-index --no-assume-unchanged
+  ignored = !git ls-files -v | grep "^[a-z]"
