@@ -22,6 +22,8 @@ plugins=(git autojump history-substring-search rbenv cp rsync brew)
 source ${ZSH}/oh-my-zsh.sh
 # }}}
 # PATH {{{1
+    export GOPATH=${HOME}/.go
+
     export PATH=/usr/sbin:${PATH}
     export PATH=/usr/bin:${PATH}
     export PATH=/sbin:${PATH}
@@ -29,6 +31,7 @@ source ${ZSH}/oh-my-zsh.sh
     export PATH=/usr/local/heroku/bin:${PATH}
     export PATH=/usr/local/sbin:${PATH}
     export PATH=/usr/local/bin:${PATH}
+    export PATH=${GOPATH}/bin:${PATH}
     export PATH=${HOME}/local/bin:${PATH}
     typeset -U path PATH
 # }}}
@@ -120,6 +123,9 @@ local userName='%n'
 local hostName='%M'
 PROMPT="%B%F{red}${userName}@${hostName}%f%b"$'\n'"%B%F{blue}[${currentDir}]%f%b"$'\n'"> "
 # }}}
+
+# go
+export GOVERSION=1.6
 
 # rbenv
 export PATH=${HOME}/.rbenv/bin:${HOME}/.rbenv/shims:${PATH}
