@@ -8,6 +8,11 @@ INCLUDEDIR=${PREFIX}/include
 LOGDIR=${PREFIX}/log
 LOGFILE=${LOGDIR}/setup_`date +%m%d%H%M%S`.log
 
+# for go
+mkdir ${HOME}/.go
+export GOPATH=${HOME}/.go
+export PATH=${GOPATH}/bin:${HOME}
+
 case "${OSTYPE}" in
 darwin*)
     echo 'brew updating...'
