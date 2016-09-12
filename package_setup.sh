@@ -46,6 +46,7 @@ EOF
     brew install ctags
     brew install direnv
     brew install docker
+    brew install envchain
     brew install git --without-completions # source: https://github.com/robbyrussell/oh-my-zsh/issues/2394
     brew install gnu-sed
     brew install gnupg
