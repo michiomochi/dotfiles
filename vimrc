@@ -2,6 +2,9 @@
 let $VIMRCDIR=expand('<sfile>:h')
 let $VIMRC=expand('<sfile>')
 let $BACKUPDIR=$VIMRCDIR . '/.vim/backup'
+if $SHELL =~ 'fish'
+  set shell=/bin/sh
+endif
 " }}}
 " プラグイン {{{1
 " NeoBundleの設定 {{{2
