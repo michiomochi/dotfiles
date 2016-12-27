@@ -1,37 +1,50 @@
-1. Install Xcode from app store
+# Mac
 
-2. Install command line tool
-https://developer.apple.com/downloads/
+## Setup
 
-4. Sign to xcode license
+1, Install Xcode from app store
 
-```
-$ sudo xcodebuild -license
-```
+2, Install command line tool
 
-5. Modify mac name
+- https://developer.apple.com/downloads/
 
-System preferences > Sharing
-
-5. Mute alert sound
-
-System preferences > Sounds > Sounds effect > Mute
-
-
-6. Install Homebrew
+3, Sign to xcode license, and install command line tools
 
 ```
-$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+> sudo xcodebuild -license
+> xcode-select --install
 ```
 
-7. Prepare dotfiles
+4, Modify mac name
+
+- System preferences > Sharing
+
+5, Mute alert sound
+
+- System preferences > Sounds > Sounds effect > Mute
+
+6, Install java
+
+- Install from below link
+  + http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+
+7, Apply itamae-local
+
+- Install homebrew
+- Prepare itamae execution environment
+  - Install rbenv
+  - Install ruby
+  - Install bundler
+- Download dotfiles repository
+- Apply itamae
+- Change default shell to zsh
 
 ```
-$ cd ${HOME}
-$ git clone git@github.com:michiomochi/dotfiles.git
-$ cd dotfiles
-$ git submodule init
-$ git submodule update
-$ ./setup.sh
-$ ./package_setup.sh
+> ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+> brew install rbenv
+> rbenv install 2.3.1
+> ghq get git@github.com:michiomochi/dotfiles.git
+> cd ~/.ghq/github.com/michiomochi/dotfiles
+> bin/itamae-local
+> chsh -s $(which zsh)
 ```
