@@ -1,0 +1,26 @@
+[user]
+  name = Michikawa Masayoshi
+  email = michikawa.masayoshi@gmail.com
+  signingkey = D0280F62
+[core]
+  editor = vim
+  autoCRLF = false
+  excludesfile = ~/.gitignore
+[color]
+  ui = auto
+[filter "media"]
+  required = true
+  clean = git media clean %f
+  smudge = git media smudge %f
+[github]
+  user = michiomochi
+[push]
+  default = simple
+[diff]
+  ignoreSubmodules = dirty
+[filter "lfs"]
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
+[alias]
+  pr-setup = config --add remote.origin.fetch +refs/pull/*/head:refs/remotes/origin/pr/*
