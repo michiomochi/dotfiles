@@ -100,6 +100,7 @@ alias gst='git status -sb'
 alias mv='mv -i -v'
 alias rm='rm -i'
 alias rs='bundle exec rails server -b 0.0.0.0'
+alias rsof='bundle exec rspec --only-failures'
 alias vi='vim'
 
 setopt no_complete_aliases
