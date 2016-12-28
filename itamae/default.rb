@@ -12,34 +12,35 @@ node.reverse_merge!(
     add_repositories: %w(
       "homebrew/services"
     ),
-    install_packages: %w(
-      autoconf
-      cmake
-      coreutils
-      direnv
-      envchain
-      ghq
-      hub
-      imagemagick
-      jq
-      memcached
-      nodebrew
-      packer
-      peco
-      phantomjs
-      postgresql
-      rbenv
-      redis
-      tmux
-      wget
-    )
+    install_packages: [
+      "autoconf",
+      "cmake",
+      "coreutils",
+      "direnv",
+      "envchain",
+      "ghq",
+      "hub",
+      "imagemagick",
+      "jq",
+      "memcached",
+      "nodebrew",
+      "packer",
+      "peco",
+      "phantomjs",
+      "postgresql",
+      "rbenv",
+      "redis",
+      "tmux",
+      "--with-lua vim",
+      "wget",
+    ]
   }
 )
 
-require "itamae/secrets"
-node[:vault] = Itamae::Secrets(File.join(__dir__, "vault"))
-
+include_recipe "helpers"
 include_recipe "homebrew::package"
+
+home_dir = "/Users/#{run_command('whoami').stdout.strip}"
 
 # -- ruby --
 execute "brew upgrade ruby-build" do
@@ -54,7 +55,7 @@ execute "rbenv global #{node[:ruby]}" do
   not_if "rbenv version | grep #{node[:ruby]}"
 end
 
-template "/Users/#{run_command('whoami').stdout.strip}/.gemrc" do
+template "#{home_dir}/.gemrc" do
   source "templates/dotfiles/.gemrc"
 end
 
@@ -76,7 +77,7 @@ execute "nodebrew use #{node[:nodejs]}" do
 end
 
 # -- shell --
-template "/Users/#{run_command('whoami').stdout.strip}/.zshrc" do
+template "#{home_dir}/.zshrc" do
   source "templates/dotfiles/.zshrc"
 end
 
@@ -85,15 +86,28 @@ execute "echo '/usr/local/bin/zsh' | sudo tee -a /etc/shells" do
 end
 
 # -- tmux --
-template "/Users/#{run_command('whoami').stdout.strip}/.tmux.conf" do
+template "#{home_dir}/.tmux.conf" do
   source "templates/dotfiles/.tmux.conf"
 end
 
 # -- git --
-template "/Users/#{run_command('whoami').stdout.strip}/.gitconfig" do
+template "#{home_dir}/.gitconfig" do
   source "templates/dotfiles/.gitconfig"
 end
 
-template "/Users/#{run_command('whoami').stdout.strip}/.gitignore" do
+template "#{home_dir}/.gitignore" do
   source "templates/dotfiles/.gitignore"
+end
+
+# -- vim --
+template "#{home_dir}/.vimrc" do
+  source "templates/dotfiles/.vimrc"
+end
+
+template "#{home_dir}/.dein.toml" do
+  source "templates/dotfiles/.dein.toml"
+end
+
+template "#{home_dir}/.dein_lazy.toml" do
+  source "templates/dotfiles/.dein_lazy.toml"
 end

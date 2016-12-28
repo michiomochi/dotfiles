@@ -1,0 +1,49 @@
+[[plugins]] # パッケージマネージャー
+repo = 'Shougo/dein.vim'
+
+[[plugins]] # カーソル位置のコンテキストに合わせてftを切り替える
+repo = 'osyo-manga/vim-precious'
+depends = ['context_filetype.vim']
+
+[[plugins]] # カーソル位置のコンテキストのftを判定するライブラリ
+repo = 'Shougo/context_filetype.vim'
+
+[[plugins]] # toml syntax
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
+
+[[plugins]] # 補完強化
+repo = 'Shougo/context_filetype.vim'
+
+[[plugins]] # カラースキーマ
+repo = 'tomasr/molokai'
+hook_add = '''
+  set t_Co=256
+  " colorscheme 設定は source 後に行う必要があるので VimEnter で行う。
+  " 但し Colorscheme イベントの発生が抑制されないよう nented を付ける。
+  au MyAutoCmd VimEnter * nested colorscheme molokai
+'''
+
+[[plugins]] # 行末の半角スペースを可視化
+repo = 'bronson/vim-trailing-whitespace'
+
+[[plugins]] # 統合インターフェース
+repo = 'Shougo/denite.nvim'
+
+[[plugins]] # gitの差分を表示する
+repo = 'airblade/vim-gitgutter'
+
+[[plugins]] # ステータスラインを強化
+repo = 'itchyny/lightline.vim'
+
+[[plugins]] # ログファイルを色づけしてくれる
+repo = 'vim-scripts/AnsiEsc.vim'
+
+[[plugins]] # Rubyを書いてる時に自動でend句を挿入してくれる
+repo = 'tpope/vim-endwise'
+
+[[plugins]] # テキストを囲っているものの編集を容易にする
+repo = 'tpope/vim-surround'
+
+[[plugins]] # ディレクトリをサイドバーにツリー表示
+repo = 'tpope/vim-surround'
