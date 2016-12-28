@@ -1,6 +1,0 @@
-# ignore all
-*
-
-# allow any
-!.gitignore
-!.gitkeep
