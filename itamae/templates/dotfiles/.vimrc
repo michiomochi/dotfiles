@@ -39,6 +39,9 @@ augroup auto_comment_off
   autocmd BufEnter * setlocal formatoptions-=o
 augroup END
 
+" クリップボード設定
+set clipboard=unnamed
+
 " ファイル形式別のプラグイン、及びインデントを有効にする
 filetype plugin indent on
 
