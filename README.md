@@ -48,3 +48,9 @@
 > bin/itamae-local
 > chsh -s $(which zsh)
 ```
+
+8, Login npm
+
+```
+> npm adduser
+```
