@@ -58,22 +58,45 @@ setopt append_history
 setopt hist_no_store
 setopt hist_ignore_dups
 
-# pecoを使用したincremental searchの有効化
+# incremental search by peco
 function select_history_by_peco() {
-  local tac
-  if which tac > /dev/null; then
-    tac="tac"
-  else
-    tac="tail -r"
-  fi
-  BUFFER=$(\history -n 1 | \
-    eval $tac | \
-    peco --query "$LBUFFER")
+  BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
   CURSOR=$#BUFFER
-  zle clear-screen
+  zle reset-prompt
 }
 zle -N select_history_by_peco
 bindkey '^r' select_history_by_peco
+
+# process kill by peco
+function process_kill_by_peco() {
+  for pid in `ps aux | peco | awk '{ print $2 }'`
+  do
+    kill $pid
+  done
+}
+zle -N process_kill_by_peco
+bindkey '^k' process_kill_by_peco
+
+# cd ghq directory by peco
+function cd_ghq_directory_by_peco() {
+  for ghq_dir in `ghq list | peco`
+  do
+    cd `ghq root`/$ghq_dir
+  done
+  zle accept-line
+}
+zle -N cd_ghq_directory_by_peco
+bindkey '^g' cd_ghq_directory_by_peco
+
+# open github by peco
+function open_github_by_peco() {
+  for repository in `ghq list | peco | cut -d "/" -f 2,3`
+  do
+    hub browse $repository
+  done
+}
+zle -N open_github_by_peco
+bindkey '^o' open_github_by_peco
 
 # Aliases
 alias be='bundle exec'
