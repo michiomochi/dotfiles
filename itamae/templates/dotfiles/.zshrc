@@ -113,6 +113,7 @@ alias gch='git checkout'
 alias gd='git diff'
 alias gg='git grep -n'
 alias ghl='ghq look'
+alias git-remove-merged-branch="git branch --merged | grep -v '*' | xargs -I % git branch -d %"
 alias gl='git pull'
 alias glg='git log --stat'
 alias glr='git pull --rebase'

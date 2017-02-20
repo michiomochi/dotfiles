@@ -30,6 +30,7 @@ node.reverse_merge!(
       "phantomjs",
       "postgresql",
       "rbenv",
+      "readline",
       "redis",
       "tmux",
       "--with-lua vim",
@@ -48,7 +49,7 @@ execute "brew upgrade ruby-build" do
   not_if "rbenv install --list | grep #{node[:ruby]}"
 end
 
-execute "rbenv install #{node[:ruby]}" do
+execute "RUBY_CONFIGURE_OPTS='--with-readline-dir=#{run_command("brew --prefix readline")}' rbenv install #{node[:ruby]}" do
   not_if "rbenv versions | grep #{node[:ruby]}"
 end
 
