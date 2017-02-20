@@ -14,7 +14,7 @@ GEM
       thor
     itamae-plugin-recipe-homebrew (0.0.3)
       itamae (~> 1.5)
-    itamae-secrets (0.1.0)
+    itamae-secrets (0.2.0)
       thor
     method_source (0.8.2)
     multi_json (1.12.1)
