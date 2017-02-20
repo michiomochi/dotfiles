@@ -23,6 +23,7 @@ node.reverse_merge!(
       "imagemagick",
       "jq",
       "memcached",
+      "mysql",
       "nodebrew",
       "packer",
       "peco",
