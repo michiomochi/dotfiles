@@ -61,6 +61,10 @@ template "#{home_dir}/.gemrc" do
   source "templates/dotfiles/.gemrc"
 end
 
+template "#{home_dir}/.pryrc" do
+  source "templates/dotfiles/.pryrc"
+end
+
 # -- nodebrew --
 execute "mkdir -p ~/.nodebrew/src/v#{node[:nodejs]}" do
   not_if "test -d ~/.nodebrew/src/v#{node[:nodejs]}"
