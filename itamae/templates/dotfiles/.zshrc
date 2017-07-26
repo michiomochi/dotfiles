@@ -56,11 +56,12 @@ SAVEHIST=10000
 setopt extended_history
 setopt append_history
 setopt hist_no_store
-setopt hist_ignore_dups
+setopt hist_ignore_all_dups
+setopt hist_reduce_blanks
 
 # incremental search by peco
 function select_history_by_peco() {
-  BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
+  BUFFER=`history -n 1 | peco`
   CURSOR=$#BUFFER
   zle reset-prompt
 }
