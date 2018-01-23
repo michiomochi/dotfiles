@@ -5,7 +5,7 @@ ENV["PATH"] = "/usr/bin:#{ENV['PATH']}"
 
 node.reverse_merge!(
   ruby: "2.3.1",
-  nodejs: "7.2.0", # exclude "v" prefix. (e.g. "7.2.0")
+  nodejs: "9.4.0", # exclude "v" prefix. (e.g. "7.2.0")
   brew: {
     enable_update: false,
     enable_upgrade: false,
@@ -32,6 +32,7 @@ node.reverse_merge!(
       "rbenv",
       "readline",
       "redis",
+      "reattach-to-user-namespace",
       "tmux",
       "--with-lua vim",
       "wget",

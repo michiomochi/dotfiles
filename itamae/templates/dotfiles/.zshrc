@@ -61,7 +61,7 @@ setopt hist_reduce_blanks
 
 # incremental search by peco
 function select_history_by_peco() {
-  BUFFER=`history -n 1 | peco`
+  BUFFER=`history -n 1 | tail -r | peco`
   CURSOR=$#BUFFER
   zle reset-prompt
 }
