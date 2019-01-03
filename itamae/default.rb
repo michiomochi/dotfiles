@@ -4,14 +4,12 @@
 ENV["PATH"] = "/usr/bin:#{ENV['PATH']}"
 
 node.reverse_merge!(
-  ruby: "2.3.1",
-  nodejs: "9.4.0", # exclude "v" prefix. (e.g. "7.2.0")
+  ruby: "2.6.0",
+  nodejs: "10.15.0", # exclude "v" prefix. (e.g. "7.2.0")
   brew: {
     enable_update: false,
     enable_upgrade: false,
-    add_repositories: %w(
-      "homebrew/services"
-    ),
+    add_repositories: [],
     install_packages: [
       "autoconf",
       "cmake",
@@ -20,18 +18,12 @@ node.reverse_merge!(
       "envchain",
       "ghq",
       "hub",
-      "imagemagick",
       "jq",
-      "memcached",
-      "mysql",
       "nodebrew",
       "packer",
       "peco",
-      "phantomjs",
-      "postgresql",
       "rbenv",
       "readline",
-      "redis",
       "reattach-to-user-namespace",
       "tmux",
       "--with-lua vim",
@@ -75,7 +67,7 @@ execute "brew upgrade nodebrew" do
   not_if "nodebrew ls-remote | grep #{node[:nodejs]}"
 end
 
-execute "nodebrew install-binary #{node[:nodejs]}" do
+execute "nodebrew install #{node[:nodejs]}" do
   not_if "nodebrew ls | grep #{node[:nodejs]}"
 end
 
