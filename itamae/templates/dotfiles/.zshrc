@@ -16,6 +16,7 @@ export PATH=/usr/local/heroku/bin:${PATH}
 export PATH=/usr/local/sbin:${PATH}
 export PATH=/usr/local/bin:${PATH}
 export PATH=${HOME}/local/bin:${PATH}
+export PATH=${HOME}/.yarn/bin:${HOME}/.config/yarn/global/node_modules/.bin:${PATH}
 typeset -U path PATH
 
 # 表示言語設定
@@ -127,6 +128,7 @@ alias rm='rm -i'
 alias rs='bundle exec rails server -b 0.0.0.0'
 alias rsof='bundle exec rspec --only-failures'
 alias vi='vim'
+alias dcu='docker-compose up'
 
 setopt no_complete_aliases
 
@@ -153,3 +155,4 @@ export TERM=xterm-256color
 
 # direnv
 eval "$(direnv hook zsh)"
+
