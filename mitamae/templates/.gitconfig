@@ -1,0 +1,11 @@
+[user]
+  name = Michikawa Masayoshi
+  email = michikawa.masayoshi@gmail.com
+[core]
+  editor = vim
+  autoCRLF = false
+  excludesfile = ~/.gitignore
+[github]
+  user = michiomochi
+[push]
+  default = simple

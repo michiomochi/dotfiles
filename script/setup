@@ -1,0 +1,5 @@
+#!/bin/zsh -xe
+
+cd "$(dirname "$0")" || exit
+
+../bin/mitamae_v1_9_5 local ../mitamae/default.rb

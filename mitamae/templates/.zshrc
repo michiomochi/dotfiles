@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh -ex
+#!/usr/bin/zsh -ex
 
 # functions
 load_file_if_exists() {
@@ -155,4 +155,3 @@ export TERM=xterm-256color
 
 # direnv
 eval "$(direnv hook zsh)"
-
