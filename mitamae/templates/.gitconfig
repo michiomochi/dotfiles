@@ -9,3 +9,5 @@
   user = michiomochi
 [push]
   default = simple
+[credential]
+  helper = osxkeychain
