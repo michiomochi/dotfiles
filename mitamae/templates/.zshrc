@@ -19,6 +19,9 @@ export PATH=${HOME}/local/bin:${PATH}
 export PATH=${HOME}/.yarn/bin:${HOME}/.config/yarn/global/node_modules/.bin:${PATH}
 typeset -U path PATH
 
+# Environment Variables
+export EDITOR=vim
+
 # 表示言語設定
 export LANG=en_US.UTF-8
 setopt print_eight_bit
